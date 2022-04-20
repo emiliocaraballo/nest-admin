@@ -8,7 +8,7 @@ import constants from './constants';
 // Set swagger configuration
 export const setSwaggerConfig = (app: INestApplication, docsPath: string) => {
   const config = new DocumentBuilder()
-    .setTitle('App ')
+    .setTitle('App')
     .setDescription('API Docs for app')
     .setVersion('1.0')
     .addBearerAuth(
