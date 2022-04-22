@@ -21,7 +21,7 @@ export const setSwaggerConfig = (app: INestApplication, docsPath: string) => {
       },
       'accessToken',
     )
-    .addServer(constants.APP_BRILLA_API_URL)
+    .addServer(constants.APP_API_URL)
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup(docsPath || 'api/docs', app, document, {

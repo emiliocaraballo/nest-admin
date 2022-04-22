@@ -2,7 +2,7 @@
 // LIBRARIES
 import constants from '../constants';
 import { join } from 'path';
-import { SqlServerConnectionOptions } from 'typeorm/driver/sqlserver/SqlServerConnectionOptions';
+import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 
 const getOrmConfig = (
   customPathEntities?: string,
@@ -10,17 +10,16 @@ const getOrmConfig = (
 ) => {
   const pathMigrations = customPathMigrations || __dirname;
   // Connection config Typeorm
-  const config: SqlServerConnectionOptions = {
-    type: 'mssql',
+  const config: PostgresConnectionOptions = {
+    type:'postgres',
     host: constants.DATABASE_HOST,
     username: constants.DATABASE_USER,
     password: constants.DATABASE_PASSWORD,
     database: constants.DATABASE_NAME,
     port: Number(constants.DATABASE_PORT),
-    options: { encrypt: constants.NODE_ENV === 'local' ? false : true },
     entities: [join(__dirname, '**', '*.entity.{ts,js}'), customPathEntities],
     synchronize: false,
-    migrationsTableName: 'app-migrations',
+    migrationsTableName: 'migrations',
     migrations: [pathMigrations],
     logging: constants.NODE_ENV !== 'production' ? true : false,
   };
