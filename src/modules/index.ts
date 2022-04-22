@@ -1,11 +1,11 @@
 // Libraries
 import { Module } from '@nestjs/common';
-import { UserModule } from './user/user.module';
+import { UsersModule } from 'src/modules/users/users.module';
 // Modules
 @Module({
   imports: [
-    UserModule
+    UsersModule
   ],
-  controllers: [],
+  controllers: []
 })
 export class ApiModule {}

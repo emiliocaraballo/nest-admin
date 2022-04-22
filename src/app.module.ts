@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './modules/app.controller';
+import { AppController } from 'src/app.controller';
 
 // DB connection
 import { connection } from './models';
