@@ -3,7 +3,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as helmet from 'helmet';
 import { json } from 'body-parser';
-import { Transport } from '@nestjs/microservices';
+// import { Transport } from '@nestjs/microservices';
 
 // Errors filters
 import { HttpExceptionFilter } from 'src/filters';
@@ -29,15 +29,15 @@ async function bootstrap() {
    
    if (constants.REDIS_URL) {
     // Microservice configuration (Hybrid application)
-    app.connectMicroservice(
-      {
-        transport: Transport.REDIS,
-        options: {
-          url: constants.REDIS_URL,
-        },
-      },
-      { inheritAppConfig: true },
-    );
+    // app.connectMicroservice(
+    //   {
+    //     transport: Transport.REDIS,
+    //     options: {
+    //       url: constants.REDIS_URL,
+    //     },
+    //   },
+    //   { inheritAppConfig: true },
+    // );
   }
     // Init app services
   await app.startAllMicroservices();

@@ -7,5 +7,4 @@ config();
 
 export default {
   ...process.env
-  // Azure Storage Account blob config
 };

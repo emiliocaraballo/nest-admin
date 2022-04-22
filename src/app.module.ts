@@ -5,16 +5,8 @@ import { AppController } from './modules/app.controller';
 import { connection } from './models';
 // Api Modules
 import { ApiModule } from './modules';
-import { APP_GUARD } from '@nestjs/core';
-import { RolesGuard } from './guards/roles.guard';
 
 @Module({
-  providers: [
-    {
-      provide: APP_GUARD,
-      useClass: RolesGuard,
-    },
-  ],
   imports: [connection,ApiModule],
   controllers: [AppController]
 })
